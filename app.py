@@ -35,8 +35,8 @@ def index():
             # instead of `r.recognize_google(audio)`
             print("Google Speech Recognition thinks you said " + r.recognize_google(audio))
             get = r.recognize_google(audio)
-            wb.get().open_new_tab(url+get)
-            return render_template("index.html")
+            url = url + get
+            return render_template("success.html", url=url)
 
         except sr.UnknownValueError:
             print("Google Speech Recognition could not understand audio")
